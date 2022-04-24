@@ -12,6 +12,7 @@ typealias listingEntities = [listingEntity]
 struct listingEntity {
     let image: URL?
     let name: String?
+    let date: String?
     let price: Int?
     let category: Categories?
 }

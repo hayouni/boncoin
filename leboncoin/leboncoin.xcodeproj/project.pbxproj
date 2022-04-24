@@ -23,6 +23,7 @@
 		352CF8672814249800965FD6 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352CF8662814249800965FD6 /* HomeViewModel.swift */; };
 		352CF869281424B000965FD6 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352CF868281424AF00965FD6 /* Extension.swift */; };
 		352CF86B2814480B00965FD6 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352CF86A2814480B00965FD6 /* HomeTableViewCell.swift */; };
+		352CF87328154A6900965FD6 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352CF87228154A6900965FD6 /* DetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		352CF8662814249800965FD6 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		352CF868281424AF00965FD6 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		352CF86A2814480B00965FD6 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		352CF87228154A6900965FD6 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				352CF8662814249800965FD6 /* HomeViewModel.swift */,
+				352CF87228154A6900965FD6 /* DetailsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				352CF82B2814047C00965FD6 /* AppDelegate.swift in Sources */,
 				352CF82D2814047C00965FD6 /* SceneDelegate.swift in Sources */,
 				352CF85B281415BC00965FD6 /* DetailsViewController.swift in Sources */,
+				352CF87328154A6900965FD6 /* DetailsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,7 +11,7 @@ typealias listings = [listing]
 // MARK: - Recipe
 struct listing: Codable {
     let listingId, categoryId, price: Int?
-    let title: String?
+    let title, date: String?
     let image: Image?
 
     enum CodingKeys: String, CodingKey {
@@ -19,6 +19,7 @@ struct listing: Codable {
         case categoryId = "category_id"
         case image = "images_url"
         case price
+        case date = "creation_date"
         case title
      }
 }

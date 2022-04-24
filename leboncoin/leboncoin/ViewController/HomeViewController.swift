@@ -69,7 +69,10 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        navigationController?.pushViewController(DetailsViewController(), animated: true)
+        let vc = DetailsViewController()
+        let entity = viewModel?.ListingeModel(at: indexPath)
+        vc.viewModel = DetailsViewModel(item: entity) 
+        navigationController?.pushViewController(vc, animated: true)
      }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

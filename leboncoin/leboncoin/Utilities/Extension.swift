@@ -28,6 +28,7 @@ extension listing {
         }
         return listingEntity(image: url,
                              name: title,
+                             date: date,
                              price: price,
                              category: Categories(rawValue: categoryId!))
     }
@@ -85,5 +86,14 @@ extension UIView {
         if let center = center {
             centerYAnchor.constraint(equalTo: center).isActive = true
         }
+    }
+}
+
+extension Date {
+    func toString(format: String) -> String {
+        let dateformat = DateFormatter()
+        dateformat.locale = Locale(identifier: "fr_FR")
+        dateformat.dateFormat = format
+        return dateformat.string(from: self)
     }
 }
