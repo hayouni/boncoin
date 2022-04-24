@@ -9,13 +9,20 @@
 /* Begin PBXBuildFile section */
 		352CF82B2814047C00965FD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352CF82A2814047C00965FD6 /* AppDelegate.swift */; };
 		352CF82D2814047C00965FD6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352CF82C2814047C00965FD6 /* SceneDelegate.swift */; };
-		352CF82F2814047C00965FD6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352CF82E2814047C00965FD6 /* ViewController.swift */; };
-		352CF8322814047C00965FD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 352CF8302814047C00965FD6 /* Main.storyboard */; };
+		352CF82F2814047C00965FD6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352CF82E2814047C00965FD6 /* HomeViewController.swift */; };
 		352CF8342814048000965FD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 352CF8332814048000965FD6 /* Assets.xcassets */; };
 		352CF8372814048000965FD6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 352CF8352814048000965FD6 /* LaunchScreen.storyboard */; };
 		352CF8422814048000965FD6 /* leboncoinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352CF8412814048000965FD6 /* leboncoinTests.swift */; };
 		352CF84C2814048000965FD6 /* leboncoinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352CF84B2814048000965FD6 /* leboncoinUITests.swift */; };
 		352CF84E2814048000965FD6 /* leboncoinUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352CF84D2814048000965FD6 /* leboncoinUITestsLaunchTests.swift */; };
+		352CF85B281415BC00965FD6 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352CF85A281415BC00965FD6 /* DetailsViewController.swift */; };
+		352CF85D281423C000965FD6 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352CF85C281423C000965FD6 /* Network.swift */; };
+		352CF85F281423EB00965FD6 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352CF85E281423EB00965FD6 /* Service.swift */; };
+		352CF8632814248500965FD6 /* listings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352CF8612814248500965FD6 /* listings.swift */; };
+		352CF8642814248500965FD6 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352CF8622814248500965FD6 /* Entity.swift */; };
+		352CF8672814249800965FD6 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352CF8662814249800965FD6 /* HomeViewModel.swift */; };
+		352CF869281424B000965FD6 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352CF868281424AF00965FD6 /* Extension.swift */; };
+		352CF86B2814480B00965FD6 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352CF86A2814480B00965FD6 /* HomeTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +46,7 @@
 		352CF8272814047C00965FD6 /* leboncoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = leboncoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		352CF82A2814047C00965FD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		352CF82C2814047C00965FD6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		352CF82E2814047C00965FD6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		352CF8312814047C00965FD6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		352CF82E2814047C00965FD6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		352CF8332814048000965FD6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		352CF8362814048000965FD6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		352CF8382814048000965FD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +55,14 @@
 		352CF8472814048000965FD6 /* leboncoinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = leboncoinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		352CF84B2814048000965FD6 /* leboncoinUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = leboncoinUITests.swift; sourceTree = "<group>"; };
 		352CF84D2814048000965FD6 /* leboncoinUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = leboncoinUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		352CF85A281415BC00965FD6 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		352CF85C281423C000965FD6 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		352CF85E281423EB00965FD6 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		352CF8612814248500965FD6 /* listings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = listings.swift; sourceTree = "<group>"; };
+		352CF8622814248500965FD6 /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
+		352CF8662814249800965FD6 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		352CF868281424AF00965FD6 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		352CF86A2814480B00965FD6 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +115,12 @@
 			children = (
 				352CF82A2814047C00965FD6 /* AppDelegate.swift */,
 				352CF82C2814047C00965FD6 /* SceneDelegate.swift */,
-				352CF82E2814047C00965FD6 /* ViewController.swift */,
-				352CF8302814047C00965FD6 /* Main.storyboard */,
+				352CF8602814248500965FD6 /* Models */,
+				352CF870281546F300965FD6 /* ViewController */,
+				352CF8652814249800965FD6 /* ViewModel */,
+				352CF8712815471900965FD6 /* CustomCell */,
+				352CF86F281546E100965FD6 /* Utilities */,
+				352CF86E281546CB00965FD6 /* Services */,
 				352CF8332814048000965FD6 /* Assets.xcassets */,
 				352CF8352814048000965FD6 /* LaunchScreen.storyboard */,
 				352CF8382814048000965FD6 /* Info.plist */,
@@ -125,6 +143,57 @@
 				352CF84D2814048000965FD6 /* leboncoinUITestsLaunchTests.swift */,
 			);
 			path = leboncoinUITests;
+			sourceTree = "<group>";
+		};
+		352CF8602814248500965FD6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				352CF8612814248500965FD6 /* listings.swift */,
+				352CF8622814248500965FD6 /* Entity.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		352CF8652814249800965FD6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				352CF8662814249800965FD6 /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		352CF86E281546CB00965FD6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				352CF85C281423C000965FD6 /* Network.swift */,
+				352CF85E281423EB00965FD6 /* Service.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		352CF86F281546E100965FD6 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				352CF868281424AF00965FD6 /* Extension.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		352CF870281546F300965FD6 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				352CF82E2814047C00965FD6 /* HomeViewController.swift */,
+				352CF85A281415BC00965FD6 /* DetailsViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		352CF8712815471900965FD6 /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				352CF86A2814480B00965FD6 /* HomeTableViewCell.swift */,
+			);
+			path = CustomCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +302,6 @@
 			files = (
 				352CF8372814048000965FD6 /* LaunchScreen.storyboard in Resources */,
 				352CF8342814048000965FD6 /* Assets.xcassets in Resources */,
-				352CF8322814047C00965FD6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +326,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				352CF82F2814047C00965FD6 /* ViewController.swift in Sources */,
+				352CF85D281423C000965FD6 /* Network.swift in Sources */,
+				352CF8672814249800965FD6 /* HomeViewModel.swift in Sources */,
+				352CF85F281423EB00965FD6 /* Service.swift in Sources */,
+				352CF8632814248500965FD6 /* listings.swift in Sources */,
+				352CF82F2814047C00965FD6 /* HomeViewController.swift in Sources */,
+				352CF86B2814480B00965FD6 /* HomeTableViewCell.swift in Sources */,
+				352CF869281424B000965FD6 /* Extension.swift in Sources */,
+				352CF8642814248500965FD6 /* Entity.swift in Sources */,
 				352CF82B2814047C00965FD6 /* AppDelegate.swift in Sources */,
 				352CF82D2814047C00965FD6 /* SceneDelegate.swift in Sources */,
+				352CF85B281415BC00965FD6 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +373,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		352CF8302814047C00965FD6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				352CF8312814047C00965FD6 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		352CF8352814048000965FD6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -441,7 +509,6 @@
 				INFOPLIST_FILE = leboncoin/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -468,7 +535,6 @@
 				INFOPLIST_FILE = leboncoin/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
