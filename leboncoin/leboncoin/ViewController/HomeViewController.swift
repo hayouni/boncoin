@@ -7,76 +7,132 @@
 
 import UIKit
 
+protocol HomeCoordinatorDelegate: AnyObject {
+    func showDetail(item: listingEntity?)
+}
+
 class HomeViewController: UIViewController {
     
-    private let HomeContentView:UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-
+    var viewModel: HomeViewModelProtocol?
+    weak var delegate: HomeCoordinatorDelegate?
+    
+    struct K {
+        static let filter: String = "Filtrer"
+        static let cellId: String = "cellId"
+        static let title: String = "Annonces"
+        static let filterTitle: String = "Filtrer par Catégorie"
+        static let allCategories: String =  "Toutes les Catégories"
+        static let cancelButton: String =  "Annuler"
+    }
+    
+    // MARK: - private views
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-
+        
         return tableView
     }()
-    var viewModel: HomeViewModelProtocol?
-
+    
+    private lazy var navigationBar: UINavigationBar = {
+        let navigationBar = UINavigationBar()
+        navigationBar.backgroundColor = .systemBackground
+        navigationBar.barTintColor = .systemBackground
+        let navigationItem = UINavigationItem(title: K.title)
+        navigationItem.titleView?.backgroundColor = .systemBackground
+        navigationBar.setItems([navigationItem], animated: false)
+        let filterAction = UIAction() { [weak self] action in
+            self?.showFilterOptions()
+        }
+        let filterButton = UIBarButtonItem(title: K.filter, image: nil, primaryAction: filterAction, menu: nil)
+        navigationItem.rightBarButtonItem = filterButton
+        navigationBar.translatesAutoresizingMaskIntoConstraints = false
+        return navigationBar
+    }()
+    
+    // MARK: -  function
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = HomeViewModel(service: Service.shared)
+        addSubview()
         setupTableView()
         fetchData()
     }
-    
+    // show list of categories
+    private func showFilterOptions() {
+        let alert = UIAlertController(title: K.filterTitle,
+                                      message: nil,
+                                      preferredStyle: .actionSheet)
+        let currentAction = UIAlertAction(title: K.cancelButton,
+                                          style: .cancel,
+                                          handler: nil)
+        alert.addAction(currentAction)
+        
+        let resetFilterAction = UIAlertAction(title: K.allCategories,
+                                              style: .default) { [weak self] _ in
+            self?.viewModel?.filterByCategory(caretory: nil , completion: {
+                self?.tableView.reloadData()
+            })
+        }
+        alert.addAction(resetFilterAction)
+        
+        Categories.allCases.forEach { adCategory in
+            let action = UIAlertAction(title: "\(adCategory)",
+                                       style: .default) { [weak self] _ in
+                self?.viewModel?.filterByCategory(caretory: adCategory, completion: {
+                    self?.tableView.reloadData()
+                })
+            }
+            alert.addAction(action)
+        }
+        
+        alert.popoverPresentationController?.sourceView = navigationBar
+        alert.popoverPresentationController?.sourceRect = navigationBar.bounds
+        
+        present(alert, animated: true, completion: nil)
+    }
+    // add custom views
+    private func addSubview() {
+        view.backgroundColor = .systemBackground
+        view.addSubview(navigationBar)
+        navigationBar.anchor(top: view.topAnchor,
+                             left:  view.leftAnchor,
+                             right:  view.rightAnchor,
+                             paddingTop: UIApplication.shared.windows.first?.safeAreaInsets.top ?? 0,
+                             height: 44)
+        view.addSubview(tableView)
+        
+        tableView.anchor(top: navigationBar.bottomAnchor,
+                         left: view.leftAnchor,
+                         bottom: view.bottomAnchor,
+                         right: view.rightAnchor)
+    }
+    //setup tableView
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        
-        
-        tableView.register(HomeTableViewCell.self, forCellReuseIdentifier: "cellId")
+        tableView.register(HomeTableViewCell.self, forCellReuseIdentifier: K.cellId )
         tableView.estimatedRowHeight = UITableView.automaticDimension
-
-        HomeContentView.addSubview(tableView)
-        view.addSubview(HomeContentView)
-        setUpAutoLayout()
     }
-    // MARK: - private function
+    // fetch list of items
     private func fetchData() {
         viewModel?.fetchData(completion: { [weak self] noError in
             guard let self = self else { return }
-             if noError {
+            if noError {
                 self.tableView.reloadData()
             }
         })
     }
-    func setUpAutoLayout() {
-        tableView.leftAnchor.constraint(equalTo:HomeContentView.leftAnchor).isActive = true
-        tableView.rightAnchor.constraint(equalTo:HomeContentView.rightAnchor).isActive = true
-        tableView.topAnchor.constraint(equalTo:HomeContentView.topAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo:HomeContentView.bottomAnchor).isActive = true
-        
-        
-        HomeContentView.leftAnchor.constraint(equalTo:view.leftAnchor).isActive = true
-        HomeContentView.rightAnchor.constraint(equalTo:view.rightAnchor).isActive = true
-        HomeContentView.topAnchor.constraint(equalTo:view.topAnchor).isActive = true
-        HomeContentView.bottomAnchor.constraint(equalTo:view.bottomAnchor).isActive = true
-
-    }
 }
 
+// MARK: - UITableViewDelegate, UITableViewDataSource
 extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = DetailsViewController()
-        let entity = viewModel?.ListingeModel(at: indexPath)
-        vc.viewModel = DetailsViewModel(item: entity) 
-        navigationController?.pushViewController(vc, animated: true)
-     }
+        let item = viewModel?.ListingeModel(at: indexPath)
+        delegate?.showDetail(item: item)
+    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-       return UITableView.automaticDimension
+        return UITableView.automaticDimension
     }
     
 }
@@ -87,9 +143,8 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! HomeTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.cellId, for: indexPath) as! HomeTableViewCell
         cell.listing = viewModel?.ListingeModel(at: indexPath)
         return cell
     }
-    
 }

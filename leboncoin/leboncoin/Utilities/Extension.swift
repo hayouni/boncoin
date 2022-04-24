@@ -1,8 +1,8 @@
 //
 //  Extension.swift
-//  HelloFresh
+//  leboncoin
 //
-//  Created by Saiefeddine HAYOUNI on 06/12/2021.
+//  Created by Saiefeddine HAYOUNI on 23/04/2022.
 //
 import UIKit
 
@@ -20,7 +20,7 @@ extension UIImageView {
     }
 }
 
-extension listing {
+extension Listing {
     var asEntity: listingEntity {
         var url: URL?
         if let imageString = image?.small {
@@ -29,12 +29,14 @@ extension listing {
         return listingEntity(image: url,
                              name: title,
                              date: date,
+                             description: description,
                              price: price,
+                             isUrgent: isUrgent,
                              category: Categories(rawValue: categoryId!))
     }
 }
 
-extension listings {
+extension Listings {
     var asEntities: listingEntities {
         map { $0.asEntity }
     }
@@ -46,11 +48,13 @@ extension UIView {
                  left: NSLayoutXAxisAnchor? = nil,
                  bottom: NSLayoutYAxisAnchor? = nil,
                  right: NSLayoutXAxisAnchor? = nil,
-                 center: NSLayoutYAxisAnchor? = nil,
+                 centerY: NSLayoutYAxisAnchor? = nil,
+                 centerX: NSLayoutXAxisAnchor? = nil,
                  paddingTop: CGFloat = 0,
                  paddingLeft: CGFloat = 0,
                  paddingBottom: CGFloat = 0,
                  paddingRight: CGFloat = 0,
+                 paddingWidth: NSLayoutDimension? = nil,
                  width: CGFloat = 0,
                  height: CGFloat = 0,
                  enableInsets: Bool = false) {
@@ -83,9 +87,16 @@ extension UIView {
         if width != 0 {
             widthAnchor.constraint(equalToConstant: width).isActive = true
         }
-        if let center = center {
-            centerYAnchor.constraint(equalTo: center).isActive = true
+        if let centerY = centerY {
+            centerYAnchor.constraint(equalTo: centerY).isActive = true
         }
+        if let centerX = centerX {
+            centerXAnchor.constraint(equalTo: centerX).isActive = true
+        }
+        if let paddingWidth = paddingWidth {
+            widthAnchor.constraint(equalTo: paddingWidth).isActive = true
+        }
+        
     }
 }
 

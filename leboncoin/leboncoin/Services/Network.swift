@@ -11,15 +11,15 @@ struct Network {
     static let shared = Network()
     // use T optional
     // when nil show error view
-    // when != nil show recepies list
+    // when != nil show list
     func fetchData<T: Decodable>(urlString: String, completion:
-                                            @escaping (T?) -> ()) {
+                                 @escaping (T?) -> ()) {
         guard let url = URL(string: urlString) else { return }
         let config = URLSessionConfiguration.default
         config.requestCachePolicy = .reloadIgnoringLocalCacheData
         config.urlCache = nil
         config.timeoutIntervalForRequest = 6.0;
-
+        
         let task =  URLSession(configuration: config).dataTask(with: url) { (data, _, err) in
             guard err == nil, let data = data else {
                 completion(nil)

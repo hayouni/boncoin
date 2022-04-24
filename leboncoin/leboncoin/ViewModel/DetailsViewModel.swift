@@ -12,6 +12,7 @@ protocol DetailsViewModelProtocol {
     var name: String? { get }
     var date: String? { get }
     var price: Int? { get }
+    var description: String? { get }
     var category: Categories? { get }
 }
 
@@ -20,31 +21,33 @@ class DetailsViewModel: DetailsViewModelProtocol {
     
     
     // MARK: - internal properties
-    // list of recipes
+    // list of listings
     internal var item: listingEntity?
     
     init (item: listingEntity?) {
         self.item = item
     }
- 
+    
     /// get number ofItems
     /// - Returns: Int
     var image: URL? {
-         item?.image
+        item?.image
     }
     
     var name: String? {
-         item?.name
+        item?.name
     }
     var date: String? {
-         item?.date
+        item?.date
     }
     
     var price: Int? {
-         item?.price
+        item?.price
     }
     var category: Categories? {
         item?.category
     }
-   
+    var description: String? {
+        item?.description
+    }
 }

@@ -10,18 +10,23 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    var appCoordinator : Coordinator?
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
          
-           let window = UIWindow(windowScene: windowScene)
-           window.rootViewController = UINavigationController(rootViewController: HomeViewController()) 
-           window.makeKeyAndVisible()
-           self.window = window
+        window = UIWindow(windowScene: windowScene)
+        window?.rootViewController = UINavigationController()
+        // Initialise the coordinator with the main navigation controller
+        appCoordinator = Coordinator(navigationController: window?.rootViewController as! UINavigationController)
+        
+        // The start method will actually display the main view
+        appCoordinator?.start()
+        window?.makeKeyAndVisible()
         guard let _ = (scene as? UIWindowScene) else { return }
     }
-
+    
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.

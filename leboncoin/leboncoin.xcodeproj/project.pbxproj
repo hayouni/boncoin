@@ -7,23 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35065838281860A400CFAD30 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35065837281860A400CFAD30 /* Coordinator.swift */; };
 		352CF82B2814047C00965FD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352CF82A2814047C00965FD6 /* AppDelegate.swift */; };
 		352CF82D2814047C00965FD6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352CF82C2814047C00965FD6 /* SceneDelegate.swift */; };
 		352CF82F2814047C00965FD6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352CF82E2814047C00965FD6 /* HomeViewController.swift */; };
 		352CF8342814048000965FD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 352CF8332814048000965FD6 /* Assets.xcassets */; };
 		352CF8372814048000965FD6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 352CF8352814048000965FD6 /* LaunchScreen.storyboard */; };
-		352CF8422814048000965FD6 /* leboncoinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352CF8412814048000965FD6 /* leboncoinTests.swift */; };
-		352CF84C2814048000965FD6 /* leboncoinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352CF84B2814048000965FD6 /* leboncoinUITests.swift */; };
-		352CF84E2814048000965FD6 /* leboncoinUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352CF84D2814048000965FD6 /* leboncoinUITestsLaunchTests.swift */; };
 		352CF85B281415BC00965FD6 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352CF85A281415BC00965FD6 /* DetailsViewController.swift */; };
 		352CF85D281423C000965FD6 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352CF85C281423C000965FD6 /* Network.swift */; };
 		352CF85F281423EB00965FD6 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352CF85E281423EB00965FD6 /* Service.swift */; };
-		352CF8632814248500965FD6 /* listings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352CF8612814248500965FD6 /* listings.swift */; };
+		352CF8632814248500965FD6 /* Listings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352CF8612814248500965FD6 /* Listings.swift */; };
 		352CF8642814248500965FD6 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352CF8622814248500965FD6 /* Entity.swift */; };
 		352CF8672814249800965FD6 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352CF8662814249800965FD6 /* HomeViewModel.swift */; };
 		352CF869281424B000965FD6 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352CF868281424AF00965FD6 /* Extension.swift */; };
 		352CF86B2814480B00965FD6 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352CF86A2814480B00965FD6 /* HomeTableViewCell.swift */; };
 		352CF87328154A6900965FD6 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352CF87228154A6900965FD6 /* DetailsViewModel.swift */; };
+		35AE700E2819BE0100849DB4 /* DetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AE70092819BE0100849DB4 /* DetailsViewModelTests.swift */; };
+		35AE700F2819BE0100849DB4 /* ServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AE700B2819BE0100849DB4 /* ServiceMock.swift */; };
+		35AE70102819BE0100849DB4 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AE700C2819BE0100849DB4 /* HomeViewModelTests.swift */; };
+		35AE70112819BE0100849DB4 /* Listings.json in Resources */ = {isa = PBXBuildFile; fileRef = 35AE700D2819BE0100849DB4 /* Listings.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,16 +36,10 @@
 			remoteGlobalIDString = 352CF8262814047B00965FD6;
 			remoteInfo = leboncoin;
 		};
-		352CF8482814048000965FD6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 352CF81F2814047B00965FD6 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 352CF8262814047B00965FD6;
-			remoteInfo = leboncoin;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		35065837281860A400CFAD30 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		352CF8272814047C00965FD6 /* leboncoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = leboncoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		352CF82A2814047C00965FD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		352CF82C2814047C00965FD6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,19 +48,19 @@
 		352CF8362814048000965FD6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		352CF8382814048000965FD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		352CF83D2814048000965FD6 /* leboncoinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = leboncoinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		352CF8412814048000965FD6 /* leboncoinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = leboncoinTests.swift; sourceTree = "<group>"; };
-		352CF8472814048000965FD6 /* leboncoinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = leboncoinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		352CF84B2814048000965FD6 /* leboncoinUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = leboncoinUITests.swift; sourceTree = "<group>"; };
-		352CF84D2814048000965FD6 /* leboncoinUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = leboncoinUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		352CF85A281415BC00965FD6 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		352CF85C281423C000965FD6 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		352CF85E281423EB00965FD6 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
-		352CF8612814248500965FD6 /* listings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = listings.swift; sourceTree = "<group>"; };
+		352CF8612814248500965FD6 /* Listings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Listings.swift; sourceTree = "<group>"; };
 		352CF8622814248500965FD6 /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		352CF8662814249800965FD6 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		352CF868281424AF00965FD6 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		352CF86A2814480B00965FD6 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		352CF87228154A6900965FD6 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
+		35AE70092819BE0100849DB4 /* DetailsViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewModelTests.swift; sourceTree = "<group>"; };
+		35AE700B2819BE0100849DB4 /* ServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceMock.swift; sourceTree = "<group>"; };
+		35AE700C2819BE0100849DB4 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		35AE700D2819BE0100849DB4 /* Listings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Listings.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,22 +78,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		352CF8442814048000965FD6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		35065836281860A400CFAD30 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				35065837281860A400CFAD30 /* Coordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		352CF81E2814047B00965FD6 = {
 			isa = PBXGroup;
 			children = (
 				352CF8292814047C00965FD6 /* leboncoin */,
 				352CF8402814048000965FD6 /* leboncoinTests */,
-				352CF84A2814048000965FD6 /* leboncoinUITests */,
 				352CF8282814047C00965FD6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -107,7 +103,6 @@
 			children = (
 				352CF8272814047C00965FD6 /* leboncoin.app */,
 				352CF83D2814048000965FD6 /* leboncoinTests.xctest */,
-				352CF8472814048000965FD6 /* leboncoinUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -117,6 +112,7 @@
 			children = (
 				352CF82A2814047C00965FD6 /* AppDelegate.swift */,
 				352CF82C2814047C00965FD6 /* SceneDelegate.swift */,
+				35065836281860A400CFAD30 /* Coordinator */,
 				352CF8602814248500965FD6 /* Models */,
 				352CF870281546F300965FD6 /* ViewController */,
 				352CF8652814249800965FD6 /* ViewModel */,
@@ -133,24 +129,17 @@
 		352CF8402814048000965FD6 /* leboncoinTests */ = {
 			isa = PBXGroup;
 			children = (
-				352CF8412814048000965FD6 /* leboncoinTests.swift */,
+				35AE70092819BE0100849DB4 /* DetailsViewModelTests.swift */,
+				35AE700C2819BE0100849DB4 /* HomeViewModelTests.swift */,
+				35AE700A2819BE0100849DB4 /* Mock */,
 			);
 			path = leboncoinTests;
-			sourceTree = "<group>";
-		};
-		352CF84A2814048000965FD6 /* leboncoinUITests */ = {
-			isa = PBXGroup;
-			children = (
-				352CF84B2814048000965FD6 /* leboncoinUITests.swift */,
-				352CF84D2814048000965FD6 /* leboncoinUITestsLaunchTests.swift */,
-			);
-			path = leboncoinUITests;
 			sourceTree = "<group>";
 		};
 		352CF8602814248500965FD6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				352CF8612814248500965FD6 /* listings.swift */,
+				352CF8612814248500965FD6 /* Listings.swift */,
 				352CF8622814248500965FD6 /* Entity.swift */,
 			);
 			path = Models;
@@ -199,6 +188,15 @@
 			path = CustomCell;
 			sourceTree = "<group>";
 		};
+		35AE700A2819BE0100849DB4 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				35AE700B2819BE0100849DB4 /* ServiceMock.swift */,
+				35AE700D2819BE0100849DB4 /* Listings.json */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -237,24 +235,6 @@
 			productReference = 352CF83D2814048000965FD6 /* leboncoinTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		352CF8462814048000965FD6 /* leboncoinUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 352CF8572814048000965FD6 /* Build configuration list for PBXNativeTarget "leboncoinUITests" */;
-			buildPhases = (
-				352CF8432814048000965FD6 /* Sources */,
-				352CF8442814048000965FD6 /* Frameworks */,
-				352CF8452814048000965FD6 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				352CF8492814048000965FD6 /* PBXTargetDependency */,
-			);
-			name = leboncoinUITests;
-			productName = leboncoinUITests;
-			productReference = 352CF8472814048000965FD6 /* leboncoinUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -269,10 +249,6 @@
 						CreatedOnToolsVersion = 13.3.1;
 					};
 					352CF83C2814048000965FD6 = {
-						CreatedOnToolsVersion = 13.3.1;
-						TestTargetID = 352CF8262814047B00965FD6;
-					};
-					352CF8462814048000965FD6 = {
 						CreatedOnToolsVersion = 13.3.1;
 						TestTargetID = 352CF8262814047B00965FD6;
 					};
@@ -293,7 +269,6 @@
 			targets = (
 				352CF8262814047B00965FD6 /* leboncoin */,
 				352CF83C2814048000965FD6 /* leboncoinTests */,
-				352CF8462814048000965FD6 /* leboncoinUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -312,13 +287,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		352CF8452814048000965FD6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				35AE70112819BE0100849DB4 /* Listings.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,8 +300,9 @@
 			files = (
 				352CF85D281423C000965FD6 /* Network.swift in Sources */,
 				352CF8672814249800965FD6 /* HomeViewModel.swift in Sources */,
+				35065838281860A400CFAD30 /* Coordinator.swift in Sources */,
 				352CF85F281423EB00965FD6 /* Service.swift in Sources */,
-				352CF8632814248500965FD6 /* listings.swift in Sources */,
+				352CF8632814248500965FD6 /* Listings.swift in Sources */,
 				352CF82F2814047C00965FD6 /* HomeViewController.swift in Sources */,
 				352CF86B2814480B00965FD6 /* HomeTableViewCell.swift in Sources */,
 				352CF869281424B000965FD6 /* Extension.swift in Sources */,
@@ -348,16 +318,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				352CF8422814048000965FD6 /* leboncoinTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		352CF8432814048000965FD6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				352CF84E2814048000965FD6 /* leboncoinUITestsLaunchTests.swift in Sources */,
-				352CF84C2814048000965FD6 /* leboncoinUITests.swift in Sources */,
+				35AE700F2819BE0100849DB4 /* ServiceMock.swift in Sources */,
+				35AE700E2819BE0100849DB4 /* DetailsViewModelTests.swift in Sources */,
+				35AE70102819BE0100849DB4 /* HomeViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,11 +331,6 @@
 			isa = PBXTargetDependency;
 			target = 352CF8262814047B00965FD6 /* leboncoin */;
 			targetProxy = 352CF83E2814048000965FD6 /* PBXContainerItemProxy */;
-		};
-		352CF8492814048000965FD6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 352CF8262814047B00965FD6 /* leboncoin */;
-			targetProxy = 352CF8482814048000965FD6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -592,40 +550,6 @@
 			};
 			name = Release;
 		};
-		352CF8582814048000965FD6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hayouni.leboncoinUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = leboncoin;
-			};
-			name = Debug;
-		};
-		352CF8592814048000965FD6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hayouni.leboncoinUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = leboncoin;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -652,15 +576,6 @@
 			buildConfigurations = (
 				352CF8552814048000965FD6 /* Debug */,
 				352CF8562814048000965FD6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		352CF8572814048000965FD6 /* Build configuration list for PBXNativeTarget "leboncoinUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				352CF8582814048000965FD6 /* Debug */,
-				352CF8592814048000965FD6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

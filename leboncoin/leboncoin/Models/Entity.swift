@@ -1,8 +1,8 @@
 //
 //  Entity.swift
-//  HelloFresh
+//  leboncoin
 //
-//  Created by Saiefeddine HAYOUNI on 06/12/2021.
+//  Created by Saiefeddine HAYOUNI on 23/04/2022.
 //
 
 import Foundation
@@ -13,11 +13,13 @@ struct listingEntity {
     let image: URL?
     let name: String?
     let date: String?
+    let description: String?
     let price: Int?
+    let isUrgent: Bool?
     let category: Categories?
 }
 
-enum Categories: Int {
+enum Categories: Int, CaseIterable {
     case Véhicule = 1
     case Mode = 2
     case Bricolage = 3

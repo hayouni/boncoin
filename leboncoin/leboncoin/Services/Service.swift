@@ -12,24 +12,24 @@ protocol ServiceProtocol: AnyObject {
 }
 
 class Service: ServiceProtocol {
-
+    
     static let shared = Service()
     struct K {
         static let urlString = "https://raw.githubusercontent.com/leboncoin/paperclip/master/listing.json"
     }
-
-    /// fetch Recepies List
-    /// - Parameter completion: RecipeEntities?
+    
+    /// fetch listings
+    /// - Parameter completion: listingEntities?
     func getlistingList(completion: @escaping (listingEntities?) -> Void) {
-        Network.shared.fetchData(urlString: K.urlString) { (feed : listings?) in
-            guard let recipes = feed else {
+        Network.shared.fetchData(urlString: K.urlString) { (feed : Listings?) in
+            guard let listings = feed else {
                 completion(nil)
                 return
             }
             // use entities to reveale only needed items of object by the viewModel/contoller
-            completion(recipes.asEntities)
+            completion(listings.asEntities)
         }
     }
-
+    
 }
- 
+
