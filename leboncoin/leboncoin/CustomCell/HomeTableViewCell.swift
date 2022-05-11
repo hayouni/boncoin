@@ -85,7 +85,7 @@ class HomeTableViewCell : UITableViewCell {
             priceLabel.text =  "\(price) €"
         }
         if let category = listing?.category {
-            categoryLabel.text =  "Catégorie: \(category)"
+            categoryLabel.text =  "Catégorie: \(category.name)"
         }
         urgentLabel.isHidden = !(listing?.isUrgent ?? false)
     }

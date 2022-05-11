@@ -23,6 +23,9 @@ class HomeViewController: UIViewController {
         static let filterTitle: String = "Filtrer par Catégorie"
         static let allCategories: String =  "Toutes les Catégories"
         static let cancelButton: String =  "Annuler"
+        static let alertMessage: String = "Une erreur est survenue. Réessayez plus tard."
+        static let alertTitle: String = "Erreur !"
+        static let retryButton: String = "réessayer"
     }
     
     // MARK: - private views
@@ -56,6 +59,7 @@ class HomeViewController: UIViewController {
         setupTableView()
         fetchData()
     }
+    
     // show list of categories
     private func showFilterOptions() {
         let alert = UIAlertController(title: K.filterTitle,
@@ -74,8 +78,8 @@ class HomeViewController: UIViewController {
         }
         alert.addAction(resetFilterAction)
         
-        Categories.allCases.forEach { adCategory in
-            let action = UIAlertAction(title: "\(adCategory)",
+        viewModel?.categories?.forEach { adCategory in
+            let action = UIAlertAction(title: "\(adCategory.name)",
                                        style: .default) { [weak self] _ in
                 self?.viewModel?.filterByCategory(caretory: adCategory, completion: {
                     self?.tableView.reloadData()
@@ -89,6 +93,7 @@ class HomeViewController: UIViewController {
         
         present(alert, animated: true, completion: nil)
     }
+    
     // add custom views
     private func addSubview() {
         view.backgroundColor = .systemBackground
@@ -105,6 +110,7 @@ class HomeViewController: UIViewController {
                          bottom: view.bottomAnchor,
                          right: view.rightAnchor)
     }
+    
     //setup tableView
     private func setupTableView() {
         tableView.delegate = self
@@ -112,14 +118,23 @@ class HomeViewController: UIViewController {
         tableView.register(HomeTableViewCell.self, forCellReuseIdentifier: K.cellId )
         tableView.estimatedRowHeight = UITableView.automaticDimension
     }
+    
     // fetch list of items
     private func fetchData() {
-        viewModel?.fetchData(completion: { [weak self] noError in
+        viewModel?.fetchData(completion: { [weak self] hasError in
             guard let self = self else { return }
-            if noError {
-                self.tableView.reloadData()
-            }
+            hasError ? self.showAlert() :   self.tableView.reloadData()
         })
+    }
+    
+    private func showAlert() {
+        let alert = UIAlertController(title: K.alertTitle, message: K.alertMessage, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: K.retryButton, style: .default, handler: { [weak self] action in
+            self?.fetchData()
+        }))
+        alert.addAction(UIAlertAction(title: K.cancelButton, style: UIAlertAction.Style.cancel, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

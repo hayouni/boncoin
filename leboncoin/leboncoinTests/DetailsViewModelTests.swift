@@ -19,8 +19,8 @@ class DetailsViewModelTests: XCTestCase {
                                    description: "",
                                    price: 35,
                                    isUrgent: true,
-                                   category: Categories(rawValue: 6))
- 
+                                     category: Categories(id: 6, name: "Immobilier"))
+
     override func setUp() {
         viewModel = DetailsViewModel(item: listingModel)
 
@@ -33,7 +33,7 @@ class DetailsViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.description , listingModel.description)
     }
     func test__ItemCategoryShouldBeEqualToViewModelCategory() throws {
-        XCTAssertEqual(viewModel.category , listingModel.category)
+        XCTAssertEqual(viewModel.category , listingModel.category?.name)
     }
     func test__ItemINameShouldBeEqualToViewModelName() throws {
         XCTAssertEqual(viewModel.name , listingModel.name)

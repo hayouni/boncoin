@@ -13,7 +13,7 @@ protocol DetailsViewModelProtocol {
     var date: String? { get }
     var price: Int? { get }
     var description: String? { get }
-    var category: Categories? { get }
+    var category: String? { get }
 }
 
 
@@ -37,6 +37,7 @@ class DetailsViewModel: DetailsViewModelProtocol {
     var name: String? {
         item?.name
     }
+    
     var date: String? {
         item?.date
     }
@@ -44,9 +45,11 @@ class DetailsViewModel: DetailsViewModelProtocol {
     var price: Int? {
         item?.price
     }
-    var category: Categories? {
-        item?.category
+    
+    var category: String? {
+        item?.category?.name
     }
+    
     var description: String? {
         item?.description
     }

@@ -7,6 +7,7 @@
 
 import Foundation
 protocol HomeViewModelProtocol {
+    var categories: [Categories]? { get }
     func numberOfItems() -> Int
     func ListingeModel(at index: IndexPath) -> listingEntity?
     func fetchData(completion: @escaping (Bool) -> ())
@@ -17,6 +18,7 @@ class HomeViewModel: HomeViewModelProtocol {
     
     // MARK: - internal properties
     // list of  listings
+    var categories: [Categories]?
     private var items: listingEntities?
     internal var searchedItems: listingEntities?
     internal var service: ServiceProtocol?
@@ -44,13 +46,18 @@ class HomeViewModel: HomeViewModelProtocol {
     /// - Parameter completion: Bool
     /// - Returns: void
     func fetchData(completion: @escaping (Bool) -> ()) {
-        service?.getlistingList { [weak self] listingsItems in
-            if let listingsItems = listingsItems {
-                self?.items = self?.sortItem(items: listingsItems)
-                self?.searchedItems = self?.sortItem(items: listingsItems)
+        service?.getlistingList(completion: { [weak self] listingsData in
+            guard let self = self,
+                  let listingsData = listingsData else {
+                completion(true)
+                return
             }
-            completion(listingsItems != nil)
-        }
+
+            self.categories = listingsData.categories
+            self.items = self.sortItem(items: listingsData.listing)
+            self.searchedItems = self.sortItem(items: listingsData.listing)
+            completion(false)
+        })
     }
     
     /// sort list of item by date and isUrgent
@@ -84,7 +91,7 @@ class HomeViewModel: HomeViewModelProtocol {
             completion()
             return
         }
-        searchedItems = items?.filter { $0.category == caretory }
+        searchedItems = items?.filter { $0.category?.id ?? 0 == caretory?.id }
         completion()
     }
     

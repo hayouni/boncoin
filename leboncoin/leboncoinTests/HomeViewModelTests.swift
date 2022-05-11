@@ -19,23 +19,23 @@ class HomeViewModelTests: XCTestCase {
                                    description: "",
                                    price: 35,
                                    isUrgent: true,
-                                   category: Categories(rawValue: 6))
+                                        category: Categories(id: 6, name: "Immobilier"))
     let secondTestEntity = listingEntity(image: URL(string: "https://raw.githubusercontent.com/leboncoin/paperclip/master/ad-small/4e72a204a34524ce0c6e7cc8b3826f2749138570.jpg"),
                                        name: "second",
                                        date: "2019-11-02T15:50:35+0000",
                                        description: "",
                                        price: 35,
                                        isUrgent: false,
-                                       category: Categories(rawValue: 6))
-    
+                                         category: Categories(id: 6, name: "Immobilier"))
+
     let thirdTestEntity = listingEntity(image: URL(string: "https://raw.githubusercontent.com/leboncoin/paperclip/master/ad-small/4e72a204a34524ce0c6e7cc8b3826f2749138570.jpg"),
                                        name: "third",
                                        date: "2019-11-06T15:50:35+0000",
                                        description: "",
                                        price: 35,
                                        isUrgent: false,
-                                       category: Categories(rawValue: 4))
-    
+                                        category: Categories(id: 4, name: "Maison"))
+
     override func setUp() {
         self.service = ServiceMock()
         self.viewModel = HomeViewModel(service: self.service)
@@ -57,12 +57,11 @@ class HomeViewModelTests: XCTestCase {
     }
     
     func test__FilterByCategoryFunction() throws {
-        self.viewModel.filterByCategory(caretory: .Immobilier, completion: {
+        self.viewModel.filterByCategory(caretory: Categories(id: 6, name: "Immobilier"), completion: {
             let filtredItem = self.viewModel.ListingeModel(at: IndexPath(row: 0, section: 0))
             XCTAssertEqual(self.viewModel.numberOfItems(), 1)
             XCTAssertEqual(filtredItem?.name, self.firstTestEntity.name )
             XCTAssertEqual(filtredItem?.category, self.firstTestEntity.category )
-            
         })
         
     }
@@ -75,7 +74,5 @@ class HomeViewModelTests: XCTestCase {
 
         XCTAssertEqual(sortedItem.last?.name, self.secondTestEntity.name )
         XCTAssertEqual(sortedItem.last?.category, self.secondTestEntity.category )
-
     }
-    
 }

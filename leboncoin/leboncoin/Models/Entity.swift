@@ -19,16 +19,3 @@ struct listingEntity {
     let category: Categories?
 }
 
-enum Categories: Int, CaseIterable {
-    case Véhicule = 1
-    case Mode = 2
-    case Bricolage = 3
-    case Maison = 4
-    case Loisirs = 5
-    case Immobilier = 6
-    case Livres = 7
-    case Multimédia = 8
-    case Service = 9
-    case Animaux = 10
-    case Enfants = 11
-}

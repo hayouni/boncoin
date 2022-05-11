@@ -6,34 +6,31 @@
 //
 
 import UIKit
+import Combine
+
+enum Error: Swift.Error {
+    case network
+}
 
 struct Network {
     static let shared = Network()
     // use T optional
     // when nil show error view
     // when != nil show list
-    func fetchData<T: Decodable>(urlString: String, completion:
-                                 @escaping (T?) -> ()) {
-        guard let url = URL(string: urlString) else { return }
-        let config = URLSessionConfiguration.default
-        config.requestCachePolicy = .reloadIgnoringLocalCacheData
-        config.urlCache = nil
-        config.timeoutIntervalForRequest = 6.0;
+    func fetchData<T: Decodable>(from url: URL, defaultValue: T) -> AnyPublisher<Result<T, Error>, Never> {
+        let decoder = JSONDecoder()
         
-        let task =  URLSession(configuration: config).dataTask(with: url) { (data, _, err) in
-            guard err == nil, let data = data else {
-                completion(nil)
-                return
+        return URLSession.shared
+            .dataTaskPublisher(for: url)
+            .retry(1)
+            .map(\.data)
+            .decode(type: T.self, decoder: decoder)
+            .receive(on: DispatchQueue.main)
+            .map { .success($0)  }
+            .catch { (error) -> AnyPublisher<Result<T, Error>, Never> in
+                return Just(.failure(.network)).eraseToAnyPublisher()
             }
-            do {
-                let homeFeed = try JSONDecoder().decode(T.self, from: data)
-                DispatchQueue.main.async {
-                    completion (homeFeed)
-                }
-            } catch _ {
-                completion(nil)
-            }
-        }
-        task.resume()
+            .eraseToAnyPublisher()
     }
+
 }

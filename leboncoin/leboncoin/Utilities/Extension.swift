@@ -21,24 +21,26 @@ extension UIImageView {
 }
 
 extension Listing {
-    var asEntity: listingEntity {
+    func asEntity(categories: [Categories]) -> listingEntity {
         var url: URL?
         if let imageString = image?.small {
             url = URL(string: imageString)
         }
+        let categorie = categories.first(where: { $0.id == categoryId ?? 0})
+        
         return listingEntity(image: url,
                              name: title,
                              date: date,
                              description: description,
                              price: price,
                              isUrgent: isUrgent,
-                             category: Categories(rawValue: categoryId!))
+                             category: categorie)
     }
 }
 
 extension Listings {
-    var asEntities: listingEntities {
-        map { $0.asEntity }
+    func asEntities(categories: [Categories]) -> listingEntities {
+        self.map { $0.asEntity(categories: categories) }
     }
 }
 
